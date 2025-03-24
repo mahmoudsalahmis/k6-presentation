@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Introduction to K6</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3>Introduction to K6</h3>
+          <div class="r-stack">
+            <img
+              src="./images/K6-logo.svg.png"
+              class="fragment current-visible"
+              data-fragment-index="2"
+              height="150"
+              width="150"
+            />
+          </div>
+        </section>
+        <section>
+          <h2>What can I use K6 for?</h2>
+          <ul>
+            <li data-fragment-index="1" class="fragment">
+              Load and performance testing 📈
+            </li>
+            <br />
+            <li data-fragment-index="2" class="fragment fade-out">
+              Browser performance testing 💻
+            </li>
+            <br />
+            <li data-fragment-index="2" class="fragment fade-out">
+              Chaos and resilience testing 🤯
+            </li>
+            <br />
+            <li data-fragment-index="2" class="fragment fade-out">
+              Infrastructure testing 🚧
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h4>Types of performance Testing</h4>
+          <h5>Stress Testing</h5>
+          <img
+            src="./images/chart-stress-test-overview.png"
+            class="fragment current-visible"
+            height="500"
+            width="100%"
+          />
+        </section>
+        <section>
+          <h4>Types of performance Testing</h4>
+          <h5>Soak Testing</h5>
+          <img
+            src="./images/chart-soak-test-overview.png"
+            class="fragment current-visible"
+            height="500"
+            width="100%"
+          />
+        </section>
+        <section>
+          <h4>Types of performance Testing</h4>
+          <h5>Spike Testing</h5>
+          <img
+            src="./images/chart-spike-test-overview.png"
+            class="fragment current-visible"
+            height="500"
+            width="100%"
+          />
+        </section>
+        <section>
+          <h4>Types of performance Testing</h4>
+          <h5>Average Load Testing</h5>
+          <img
+            src="./images/chart-average-load-test-overview.png"
+            class="fragment current-visible"
+            height="500"
+            width="100%"
+          />
+        </section>
+        <section>
+          <h4>Types of performance Testing</h4>
+          <h5>Breakpoint Testing</h5>
+          <img
+            src="./images/chart-breakpoint-test-overview.png"
+            class="fragment current-visible"
+            height="500"
+            width="100%"
+          />
+        </section>
+        <section>
+          <h4>Types of performance Testing</h4>
+          <h5>Smoke Testing</h5>
+          <img
+            src="./images/chart-smoke-test-overview.png"
+            class="fragment current-visible"
+            height="500"
+            width="100%"
+          />
+        </section>
+        <section>
+          <img
+            src="./images/K6-logo.svg.png"
+            height="100"
+            width="100"
+            style="margin: auto"
+          />
+
+          is written using
+          <img
+            src="./images/JavaScript-logo.png"
+            height="100"
+            width="100"
+            style="margin: auto"
+          />
+          <p class="fragment current-visible" style="margin: auto">
+            or
+            <img
+              src="./images/Typescript_logo_2020.svg.png"
+              height="100"
+              width="100"
+              style="margin: auto"
+            />
+          </p>
+        </section>
+        <section>
+          <h2>Tell me more about K6?</h2>
+          <ul style="font-size: x-large">
+            <li data-fragment-index="1" class="fragment">CLI ✅</li>
+            <br />
+            <li data-fragment-index="1" class="fragment">ES2015/ES6 ✅</li>
+            <br />
+            <li data-fragment-index="1" class="fragment">
+              Checks, Thresholds, Metrics, Test Scenarios & Test Executor✅
+            </li>
+            <br />
+            <li data-fragment-index="1" class="fragment">
+              Result Storage & Visualization Integration ✅
+            </li>
+            <br />
+            <li data-fragment-index="1" class="fragment">
+              Test Builder, Browser Recorder & Browser Testing
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 data-id="code-title">Show me some code, please? 🥺</h2>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          >script.js<code class="hljs js" ><script type="text/template">
+        
+         import http from 'k6/http';
+
+         export default function() {
+             http.get('https://test.k6.io');
+         }   
+        </script></code></pre>
+        </section>
+        <section>
+          <h2>That's it? How can I run it</h2>
+          <ul>
+            <li data-fragment-index="1" class="fragment">Local CLI ✅</li>
+            <br />
+            <li data-fragment-index="2" class="fragment">Cloud ✅</li>
+            <br />
+            <li data-fragment-index="3" class="fragment">K8s✅</li>
+          </ul>
+        </section>
+        <section>
+          <h2 data-id="code-title">Locally</h2>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hlps ps" ><script type="text/template">
+          $ k6 run script.js
+        </script></code></pre>
+        </section>
+        <section>
+          <h2 data-id="code-title">Cloud</h2>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hlps ps" ><script type="text/template">
+          $ k6 cloud script.js
+        </script></code></pre>
+        </section>
+        <section>
+          <h2 data-id="code-title">K8s</h2>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hlyaml yaml" >k6.yaml<script type="text/template">
+            apiVersion: k6.io/v1alpha1
+            kind: K6
+            metadata:
+              name: k6-sample
+            spec:
+              parallelism: 4
+              script:
+                configMap:
+                  name: stress-test
+                  file: script.js
+        </script></code></pre>
+          <pre
+            class="fragment"
+            data-fragment-index="2"
+            data-id="code-animation"
+          ><code class="hlps ps" ><script type="text/template">
+          $ kubectl apply -f k6.yaml
+        </script></code>
+      </pre>
+        </section>
+        <section>
+          <h5>Test Result</h5>
+          <img
+            src="./images/SimpleResult.png"
+            class="fragment current-visible"
+            style="height: 100%; width: 100%; margin: 0%"
+          />
+        </section>
+        <section>
+          <h5>Only 1 Request!</h5>
+          <img
+            src="./images/SimpleResult-2.png"
+            class="fragment current-visible"
+            style="height: 100%; width: 100%; margin: 0%"
+          />
+        </section>
+        <section>
+          <h5>100 virtual users!</h5>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hlps ps" ><script type="text/template">
+        $ k6 run -u 100 -d 1m script.js
+      </script></code></pre>
+        </section>
+        <section>
+          <h5>Self contained</h5>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hljs js" ><script type="text/template">
+            import http from 'k6/http';
+
+            export const options = {
+              vus: 100,
+              duration: '1m',
+            }
+            
+            export default function() {
+                http.get('https://test.k6.io');
+            }   
+      </script></code></pre>
+        </section>
+        <section>
+          <h5>Iterations Vs http_reqs</h5>
+          <img
+            src="./images/SimpleResult-3.png"
+            class="fragment current-visible"
+            style="height: 100%; width: 100%; margin: 0%"
+          />
+        </section>
+        <section>
+          <h5>Iterations Vs http_reqs</h5>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hljs js" ><script type="text/template">
+import http from 'k6/http';
+
+export const options = {
+	vus: 100,
+	duration: '1m',
+}
+export default function() {
+	for(let i = 0; i < 10; i++)
+	{	 
+     http.get('https://test.k6.io');
+	} 
+}   
+      </script></code></pre>
+        </section>
+        <section>
+          <h5>Iterations Vs http_reqs</h5>
+          <img
+            src="./images/SimpleResult-4.png"
+            class="fragment current-visible"
+            style="height: 100%; width: 100%; margin: 0%"
+          />
+        </section>
+        <section>
+          <h5>K6 Triangle</h5>
+          <img src="./images/k6Triangle.jpg" class="fragment current-visible" />
+        </section>
+        <section>
+          <h5>more realistic example</h5>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 420px;"><script type="text/template">
+import http from 'k6/http';
+
+export const options = {
+  vus: 10,
+  duration: '1m',
+}
+
+const params = {
+  headers: { 'User-Id': '1', 'Customer-Id': '1'}
+}
+
+export default function() {
+  http.get('http://localhost:8080/v1/assets', params);
+}   
+      </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <p style="font-size: large">
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/javascript-api/k6-http/params/"
+              >Params
+            </a>
+          </p>
+          <img
+            src="./images/SimpleResult-5.png"
+            class="fragment current-visible"
+          />
+        </section>
+        <section>
+          <h5>Other HTTP methods, POST?</h5>
+          <pre
+            class="fragment"
+            data-fragment-index="1"
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 420px;"><script type="text/template">
+import http from 'k6/http'
+
+const url = 'https://quickpizza.grafana.com/api/json';
+
+export default function () {
+  let data = { name: 'Bert' };
+
+  // Using a JSON string as body
+  let res = http.post(url, JSON.stringify(data), {
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  res = http.post(url, data);
+}  
+    </script></code></pre>
+        </section>
+        <section>
+          <h5>
+            Other
+            <a
+              href="https://grafana.com/docs/k6/latest/javascript-api/k6-http/"
+              target="_blank"
+              >HTTP methods</a
+            >
+          </h5>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from 'k6/http';
+import { check } from 'k6';
+
+export default function () {
+  const responses = http.batch([
+    ['GET', 'https://test.k6.io', null, { tags: { ctype: 'html' } }],
+    ['GET', 'https://test.k6.io/style.css', null, { tags: { ctype: 'css' } }],
+    ['GET', 'https://test.k6.io/images/logo.png', null, { tags: { ctype: 'images' } }],
+  ]);
+  check(responses[0], {
+    'main page status was 200': (res) => res.status === 200,
+  });
+}
+    </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <p style="font-size: large">
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/checks/"
+              >Checks
+            </a>
+          </p>
+          <img
+            src="./images/SimpleResult-6.png"
+            class="fragment current-visible"
+          />
+        </section>
+        <section>
+          <h5>Output</h5>
+          <p style="font-size: large">
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/checks/"
+              >Checks
+            </a>
+          </p>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from 'k6/http';
+import { check } from 'k6';
+
+export default function () {
+  const res = http.get('http://test.k6.io/');
+  check(res, {
+    'is status 200': (r) => r.status === 200,
+    'body size is 11,105 bytes': (r) => r.body.length == 11105,
+  });
+}
+  </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <p style="font-size: large">
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/checks/"
+              >Checks </a
+            >does not stop the test run if the check fails. It creates a rate
+            metric
+          </p>
+          <img src="./images/SimpleResult-7.png" />
+        </section>
+        <section>
+          <h3>What If I want to have a check on all requests!</h3>
+          <h2 class="fragment" data-fragment-index="1">
+            <a
+              href="https://grafana.com/docs/k6/latest/using-k6/thresholds/"
+              target="_blank"
+              >Thresholds</a
+            >
+          </h2>
+          <ul>
+            <li data-fragment-index="2" class="fragment">
+              Less than 1% of requests return an error.
+            </li>
+            <br />
+            <li data-fragment-index="3" class="fragment">
+              95% of requests have a response time below 200ms.
+            </li>
+            <br />
+            <li data-fragment-index="4" class="fragment">
+              99% of requests have a response time below 400ms.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+
+import http from "k6/http";
+export const options = {
+  vus: 10,
+  duration: "1m",
+  thresholds: {
+    // Less than 1% of requests return an error
+    http_req_failed: ['rate<0.01'], 
+    // 95% of requests have a response time below 200ms
+    http_req_duration: ["p(95)<200"],
+  },
+};
+
+const params = {
+  headers: { "User-Id": "1", "Customer-Id": "1" },
+};
+
+export default function () {
+  http.get("http://localhost:8080/v1/assets", params);
+}
+
+
+</script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-8.png" />
+        </section>
+        <section>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+
+import http from "k6/http";
+export const options = {
+  vus: 10,
+  duration: "1m",
+  thresholds: {
+    // Less than 1% of requests return an error
+    http_req_failed: ['rate<0.01'], 
+    // 99% of requests have a response time below 10ms!
+    http_req_duration: ["p(95)<10"],
+  },
+};
+
+const params = {
+  headers: { "User-Id": "1", "Customer-Id": "1" },
+};
+
+export default function () {
+  http.get("http://localhost:8080/v1/assets", params);
+}
+
+
+</script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-9.png" />
+        </section>
+        <section>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from "k6/http";
+export const options = {
+  vus: 10,
+  duration: "1m",
+  thresholds: {
+    // Less than 1% of requests return an error
+    http_req_failed: ["rate<0.01"],
+    // Multiple measuring points for the response time
+    http_req_duration: ["p(90)<400", "p(95)<500", "p(99)<600"],
+  },
+};
+
+const params = {
+  headers: { "User-Id": "1", "Customer-Id": "1" },
+};
+
+export default function () {
+  http.get("http://localhost:8080/v1/assets", params);
+}
+            
+
+</script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-10.png" />
+        </section>
+        <section style="font-size: x-large">
+          <h2 class="fragment" data-fragment-index="1">
+            <a
+              href="https://grafana.com/docs/k6/latest/using-k6/tags-and-groups//"
+              target="_blank"
+              >Tags</a
+            >
+            <p>Categorize Checks, Thresholds, Metrics & Requests</p>
+          </h2>
+          <ul>
+            <li data-fragment-index="2" class="fragment">System Tags</li>
+            <br />
+            <li data-fragment-index="3" class="fragment">User Defined Tags</li>
+            <br />
+          </ul>
+        </section>
+        <section>
+          <h2>
+            <a
+              href="https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/#system-tags"
+              target="_blank"
+              >System Tags</a
+            >
+          </h2>
+          <img src="./images/tags.png" />
+        </section>
+        <section>
+          <h4>User defined Tag</h4>
+          <p>Global Tag</p>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from 'k6/http';
+import { check } from 'k6';
+
+export let options = {
+  tags: {
+    testType: 'loadTest', // Global tag for all requests
+  },
+};
+
+export default function () {
+  const res = http.get('https://example.com/api/data', {
+    tags: { endpoint: 'data' }, // Custom tag for this request
+  });
+  check(res, {
+    'status is 200': (r) => r.status === 200,
+  });
+}
+</script></code></pre>
+        </section>
+        <section>
+          <h4>User defined Tag</h4>
+          <p>User Journey Tag</p>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from 'k6/http';
+import { check } from 'k6';
+
+export default function () {
+  const res1 = http.get('https://example.com/api/login', {
+    tags: { journey: 'login' },
+  });
+  check(res1, {
+    'status is 200': (r) => r.status === 200,
+  });
+
+  const res2 = http.get('https://example.com/api/dashboard', {
+    tags: { journey: 'dashboard' },
+  });
+  check(res2, {
+    'status is 200': (r) => r.status === 200,
+  });
+}
+</script></code></pre>
+        </section>
+
+        <section>
+          <h4>User defined Tag</h4>
+          <p>Custom Metrics Tag</p>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from 'k6/http';
+import { Counter } from 'k6/metrics';
+
+let errorCount = new Counter('errors');
+
+export default function () {
+  const res = http.get('https://example.com/api/data', {
+    tags: { endpoint: 'data' },
+  });
+
+  if (res.status !== 200) {
+    // Custom tag for the metric
+    errorCount.add(1, { errorType: 'httpError' }); 
+  }
+}
+</script></code></pre>
+        </section>
+        <section>
+          <h4>Accept Tag as a parameter</h4>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js"><script type="text/template">
+            $ k6 run script.js --tag region=us-west-2
+  </script></code></pre>
+        </section>
+        <section>
+          <h4>Accept Tag as a parameter</h4>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;" data-trim data-line-numbers="10-23|25-41"><script type="text/template">
+import http from "k6/http";
+import { check } from "k6";
+import exec from "k6/execution";
+
+export let options = {
+  vus: 1, // Number of virtual users
+  iterations: 1, // Number of iterations
+};
+
+export function setup() {
+  // Retrieve the region from the tag
+  let region = "";
+  switch (exec.vu.metrics.tags.region) {
+    case "us-east-1":
+    case "us-west-2":
+    case "eu-west-1":
+      region = exec.vu.metrics.tags.region;
+      break;
+  }
+  return { region: region };
+}
+
+export default function (data) {
+  const region = data.region;
+
+  // Construct the URL for the specific region
+  const url = `https://s3.${region}.amazonaws.com`;
+
+  // Make the HTTP request and tag it with the region
+  const res = http.get(url, {
+    tags: { region: region }, // Custom tag for the region
+  });
+
+  // Check the response status
+  check(res, {
+    "status is 200": (r) => r.status === 200,
+  });
+}
+            
+  </script></code></pre>
+        </section>
+        <section>
+          <h4>Thresholds Per Tag</h4>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from "k6/http";
+import { check } from "k6";
+import exec from "k6/execution";
+
+export let options = {
+  vus: 1, // Number of virtual users
+  iterations: 1, // Number of iterations
+
+  thresholds: {
+    // 95% of requests must complete within 500ms
+    "http_req_duration{region:us-east-1}": ["p(95)<500"], 
+    // 95% of requests must complete within 750ms
+    "http_req_duration{region:us-west-1}": ["p(95)<750"], 
+  },
+};
+
+// The setup function can accept parameters
+export function setup() {
+  // Retrieve the region from the tag
+  let region = "us-east-1";
+  switch (exec.vu.metrics.tags.region) {
+    case "us-east-1":
+    case "us-west-2":
+    case "eu-west-1":
+      region = region;
+      break;
+  }
+  return { region: region };
+}
+
+export default function (data) {
+  // Use the region passed from the setup function
+  const region = data.region;
+
+  // Construct the URL for the specific region
+  const url = `https://s3.${region}.amazonaws.com`;
+
+  // Make the HTTP request and tag it with the region
+  const res = http.get(url, {
+    tags: { region: region }, // Custom tag for the region
+  });
+
+  // Check the response status
+  check(res, {
+    "status is 200": (r) => r.status === 200,
+  });
+}
+  </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-12.png" style="width: 90%" />
+        </section>
+        <section>
+          <h5>Groups</h5>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs js" style="min-height: 431px;" data-trim data-line-numbers="3-23"><script type="text/template">
+import { group } from 'k6';
+
+export default function () {
+  group('visit product listing page', function () {
+    // ...
+  });
+  group('add several products to the shopping cart', function () {
+    // ...
+  });
+  group('visit login page', function () {
+    // ...
+  });
+  group('authenticate', function () {
+    // ...
+  });
+  group('checkout process', function () {
+    // ...
+  });
+}
+</script></code></pre>
+        </section>
+        <section>
+          <h5>Groups</h5>
+          <img
+            src="./images/SimpleResult-13.png"
+            class="fragment current-visible"
+          />
+        </section>
+        <section>
+          <h5>Groups</h5>
+          <ul>
+            <li>Group name is a tag</li>
+            <br />
+            <li>Discouraged: one group per request</li>
+            <br />
+          </ul>
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/test-lifecycle/#test-lifecycle"
+              >Test Life Cycle</a
+            >
+          </h5>
+          <pre><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+// 1. init code - Once per VU
+export function setup() {
+  // 2. setup code - Once
+}
+
+export default function (data) {
+  // 3. VU code - Once per iterations
+}
+
+export function teardown(data) {
+  // 4. teardown code - Once
+}
+            </script></code></pre>
+        </section>
+        <section>
+          <h5>
+            <a
+              href="https://grafana.com/docs/k6/latest/using-k6/test-lifecycle/"
+              target="_blank"
+              >Test Life Cycle</a
+            >
+          </h5>
+          <pre><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+console.log("Init");
+export function setup() {
+  console.log("Setup");
+  return {}; // return object get injected into default & tear function
+}
+
+export function teardown() {
+  console.log("Teardown");
+}
+
+export default function () {
+  console.log("default");
+}
+            </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-15.png" style="width: 90%" />
+        </section>
+        <section>
+          <h5>
+            Access
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/metrics/#metrics"
+              >Metrics</a
+            >
+          </h5>
+          <pre><code class="hljs js" style="min-height: 431px;"><script type="text/template">
+import http from "k6/http";
+
+export default function () {
+  const res = http.get("https://quickpizza.grafana.com");
+  console.log(res.timings);
+}
+ </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-16.png" style="width: 90%" />
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/metrics/#metrics"
+              >Metrics</a
+            >
+          </h5>
+
+          <ul style="font-size: x-large">
+            <li><b>Counter</b> - tracks how many times something happened</li>
+            <br />
+            <li>
+              <b>Gauge</b> - tracks a value that can go up and down (min, max
+              and last value)
+            </li>
+            <br />
+            <li>
+              <b>Rate</b> - tracks percentage of values in a series that are
+              non-zero
+            </li>
+            <br />
+            <li>
+              <b>Trend</b> - calculates statistics on series of values (like
+              mean, mode or percentile)
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/metrics/#metrics"
+              >Metrics Types</a
+            >
+          </h5>
+
+          <ul style="font-size: x-large">
+            <li>
+              <a
+                href="https://grafana.com/docs/k6/latest/using-k6/metrics/reference/#built-in-metrics"
+                target="_blank"
+                >Built-in</a
+              >
+              (Standard, Http, Browser and Others)
+            </li>
+            <br />
+            <li>Custom Metrics</li>
+          </ul>
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/metrics/#metrics"
+              >Custom Metrics</a
+            >
+          </h5>
+          <pre><code class="hljs js" style="min-height: 431px;font-size: large;" data-trim data-line-numbers="2-8|10-27"><script type="text/template">
+import http from "k6/http";
+import { Counter } from "k6/metrics";
+
+const response200Counter = new Counter("response_200_counter");
+const response300Counter = new Counter("response_300_counter");
+const response400Counter = new Counter("response_400_counter");
+const response500Counter = new Counter("response_500_counter");
+const responseOtherCounter = new Counter("response_other_counter");
+
+export default function () {
+  
+  const res = http.get("https://quickpizza.grafana.com");
+  switch (res.status) {
+    case 200:
+      response200Counter.add(1);
+      break;
+    case 300:
+      response300Counter.add(1);
+      break;
+    case 400:
+      response400Counter.add(1);
+      break;
+    case 500:
+      response500Counter.add(1);
+      break;
+    default:
+      responseOtherCounter.add(1);
+  }
+}
+            
+ </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-17.png" style="width: 90%" />
+        </section>
+        <section style="font-size: xx-large">
+          <h5>
+            <a
+              href="https://grafana.com/docs/k6/latest/using-k6/scenarios/"
+              target="_blank"
+              >Scenarios</a
+            >
+          </h5>
+          <ul>
+            <li>VU</li>
+            <li>Iterations</li>
+            <li>Duration</li>
+            <li>Start time</li>
+            <li>Executor</li>
+          </ul>
+        </section>
+        <section>
+          <h5>K6 Triangle</h5>
+          <img src="./images/k6Triangle.jpg" class="fragment current-visible" />
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/ramping-vus/"
+              >Ramping VUS</a
+            >
+          </h5>
+          <pre><code class="hljs js"><script type="text/template">
+import http from 'k6/http';
+import { sleep } from 'k6';
+
+export const options = {
+  discardResponseBodies: true,
+  scenarios: {
+    contacts: {
+      executor: 'ramping-vus',
+      startVUs: 0,
+      stages: [
+        { duration: '20s', target: 10 },
+        { duration: '10s', target: 0 },
+      ],
+      gracefulRampDown: '0s',
+    },
+  },
+};
+
+export default function () {
+  http.get('https://test.k6.io/contacts.php');
+  sleep(0.5);
+}
+ </script></code></pre>
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-19.png" />
+        </section>
+        <section>
+          <h5>Output</h5>
+          <img src="./images/SimpleResult-20.png" />
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/results-output/#results-output"
+              >Results output</a
+            >
+          </h5>
+          <img src="./images/SimpleResult-18.png" style="height: 600px" />
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/metrics/#metrics"
+              >JSON Output</a
+            >
+          </h5>
+          <pre><code class="hlps ps"><script type="text/template">
+            $ k6 run --out json=test_results.json script.js
+ </script></code></pre>
+        </section>
+        <section>
+          <h5>
+            <a
+              target="_blank"
+              href="https://grafana.com/docs/k6/latest/using-k6/metrics/#metrics"
+              >JSON Output</a
+            >
+          </h5>
+          <pre>test_results.json<code class="hlps ps"><script type="text/template">
+
+{"type":"Metric","data":{"type":"gauge","contains":"default","tainted":null,
+"thresholds":[],"submetrics":null},"metric":"vus"}
+{"type":"Point","data":{"time":"2017-05-09T14:34:45.625742514+02:00",
+"value":5,"tags":null},"metric":"vus"}
+{"type":"Metric","data":{"type":"trend","contains":"time","tainted":null,
+"thresholds":["avg<1000"],"submetrics":null},
+"metric":"http_req_duration"}
+{"type":"Point","data":{"time":"2017-05-09T14:34:45.239531499+02:00",
+"value":459.865729,"tags":{"group":"::my group::json","method":"GET",
+"status":"200","url":"https://quickpizza.grafana.com/api/tools"}},
+"metric":"http_req_duration"}
+ </script></code></pre>
+        </section>
+        <section>
+          <a href="https://www.influxdata.com/" target="_blank"
+            ><img src="./images/Influxdb_logo.svg.png"
+          /></a>
+          <a
+            href="https://grafana.com/docs/k6/latest/results-output/real-time/influxdb/"
+            target="_blank"
+            >InfluxDB Extension
+          </a>
+        </section>
+        <section>
+          We need to visualise that
+          <p>
+            <img
+              src="./images/Grafana_logo.svg.png"
+              style="max-height: 200px"
+              class="fragment"
+              data-fragment-index="1"
+            />
+          </p>
+        </section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
