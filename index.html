@@ -34,29 +34,30 @@
         <section>
           <h2>What can I use K6 for?</h2>
           <ul>
-            <li data-fragment-index="1" class="fragment">
-              Load and performance testing 📈
-            </li>
+            <li>Load and performance testing 📈</li>
             <br />
-            <li data-fragment-index="2" class="fragment fade-out">
+            <li class="fragment fade-in-then-out" data-fragment-index="1">
               Browser performance testing 💻
             </li>
             <br />
-            <li data-fragment-index="2" class="fragment fade-out">
+            <li class="fragment fade-in-then-out" data-fragment-index="1">
               Chaos and resilience testing 🤯
             </li>
             <br />
-            <li data-fragment-index="2" class="fragment fade-out">
+            <li class="fragment fade-in-then-out" data-fragment-index="1">
               Infrastructure testing 🚧
             </li>
           </ul>
         </section>
         <section>
           <h4>Types of performance Testing</h4>
-          <h5>Stress Testing</h5>
+          <h5 class="fragment fade-in-then-out" data-fragment-index="1">
+            Stress Testing
+          </h5>
           <img
             src="./images/chart-stress-test-overview.png"
             class="fragment current-visible"
+            data-fragment-index="1"
             height="500"
             width="100%"
           />
@@ -643,30 +644,6 @@ export default function () {
   check(res2, {
     'status is 200': (r) => r.status === 200,
   });
-}
-</script></code></pre>
-        </section>
-
-        <section>
-          <h4>User defined Tag</h4>
-          <p>Custom Metrics Tag</p>
-          <pre
-            data-id="code-animation"
-          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
-import http from 'k6/http';
-import { Counter } from 'k6/metrics';
-
-let errorCount = new Counter('errors');
-
-export default function () {
-  const res = http.get('https://example.com/api/data', {
-    tags: { endpoint: 'data' },
-  });
-
-  if (res.status !== 200) {
-    // Custom tag for the metric
-    errorCount.add(1, { errorType: 'httpError' }); 
-  }
 }
 </script></code></pre>
         </section>
