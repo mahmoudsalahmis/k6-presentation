@@ -32,6 +32,18 @@
           </div>
         </section>
         <section>
+          <h2>Special Thanks 🙏</h2>
+          <div style="text-align: center; margin-top: 50px">
+            <h3>Jupiter Pod & Keith</h3>
+            <div class="fragment" data-fragment-index="1">
+              <p style="font-size: 1.2em; font-style: italic">
+                Your insights and demonstrations have been invaluable to our
+                learning journey! 🚀
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
           <h2>What can I use K6 for?</h2>
           <ul>
             <li>Load and performance testing 📈</li>
@@ -415,30 +427,6 @@ export default function () {
             src="./images/SimpleResult-6.png"
             class="fragment current-visible"
           />
-        </section>
-        <section>
-          <h5>Output</h5>
-          <p style="font-size: large">
-            <a
-              target="_blank"
-              href="https://grafana.com/docs/k6/latest/using-k6/checks/"
-              >Checks
-            </a>
-          </p>
-          <pre
-            data-id="code-animation"
-          ><code class="hljs js" style="min-height: 431px;"><script type="text/template">
-import http from 'k6/http';
-import { check } from 'k6';
-
-export default function () {
-  const res = http.get('http://test.k6.io/');
-  check(res, {
-    'is status 200': (r) => r.status === 200,
-    'body size is 11,105 bytes': (r) => r.body.length == 11105,
-  });
-}
-  </script></code></pre>
         </section>
         <section>
           <h5>Output</h5>
